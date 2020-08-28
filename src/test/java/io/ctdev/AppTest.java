@@ -1,24 +1,26 @@
 package io.ctdev;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertTrue;
+public class AppTest extends BaseTest {
 
-/**
- * Unit test for simple App.
- */
-public class AppTest
-{
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue() {
-        System.setProperty("webdriver.chrome.driver","src\\test\\resources\\webdrivers\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://www.google.com/");
-        driver.close();
+    @DataProvider(name = "SearchProvider")
+    public static Object[][] getDataFromDataProvider() {
+        return new Object[][]{
+                {SystemConfig.config.googleTitle(), SystemConfig.config.googleUrl()},
+                {SystemConfig.config.instagramTitle(), SystemConfig.config.instagramUrl()},
+                {SystemConfig.config.facebookTitle(), SystemConfig.config.facebookUrl()}
+        };
+    }
+
+    @Test(dataProvider = "SearchProvider")
+    public void testOpenUrlAndGetTitle(String expectedTitle, String url) {
+        openUrl(url);
+
+        String actualTitle = getTitle();
+
+        Assert.assertTrue(actualTitle.contains(expectedTitle), "Tab title is not equal");
     }
 }
