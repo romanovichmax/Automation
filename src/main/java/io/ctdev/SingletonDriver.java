@@ -8,7 +8,7 @@ public class SingletonDriver {
 
     private final WebDriver driver;
 
-    public SingletonDriver() {
+    private SingletonDriver() {
         System.setProperty("webdriver.chrome.driver", SystemConfig.config.driverPath());
         driver = new ChromeDriver();
     }

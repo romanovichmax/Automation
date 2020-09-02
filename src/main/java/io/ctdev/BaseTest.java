@@ -1,20 +1,21 @@
 package io.ctdev;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 
 public class BaseTest {
-    SingletonDriver singletonDriver = new SingletonDriver();
+    WebDriver driver = SingletonDriver.getInstanceOfSingletonDriver().getDriver();
 
     public void openUrl(String url) {
-       singletonDriver.getDriver().get(url);
+       driver.get(url);
     }
 
     @AfterTest
     public void closeDriver() {
-        singletonDriver.getDriver().quit();
+        driver.quit();
     }
 
     public String getTitle() {
-        return singletonDriver.getDriver().getTitle();
+        return driver.getTitle();
     }
 }
