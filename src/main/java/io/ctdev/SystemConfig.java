@@ -26,6 +26,15 @@ public interface SystemConfig extends Config {
     @Key("title.facebook")
     String facebookTitle();
 
-    @Key("driver.path")
-    String driverPath();
+    @Key("chrome.driver.path")
+    String chromeDriverPath();
+
+    @Key("edge.driver.path")
+    String edgeDriverPath();
+
+    @Key("firefox.driver.path")
+    String firefoxDriverPath();
+
+    @Key("driver.type")
+    String driverType();
 }
