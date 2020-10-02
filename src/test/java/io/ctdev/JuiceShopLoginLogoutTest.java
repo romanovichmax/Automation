@@ -20,42 +20,42 @@ public class JuiceShopLoginLogoutTest extends BaseTest {
     @Test
     public void login() {
         RegistrationActions.register(email, password, questionIndex, answer);
-        juiceShopLoginPage.fillEmailField(email);
-        juiceShopLoginPage.fillPasswordField(password);
-        juiceShopLoginPage.clickLoginButton();
-        juiceShopHomePage.clickAccountButton();
-        juiceShopHomePage.verifyLogoutButtonPresent();
+        juiceShopLoginPage.fillEmailField(email)
+                .fillPasswordField(password)
+                .clickLoginButton()
+                .clickAccountButton()
+                .verifyLogoutButtonPresent();
         juiceShopHomePage.clickLogoutButton();
     }
 
     @Test(description = "Login with empty email")
     public void loginWithEmptyEmail() {
-        juiceShopHomePage.clickDismissButton();
-        juiceShopHomePage.clickAccountButton();
-        juiceShopHomePage.clickLoginButton();
-        juiceShopLoginPage.clickOnEmailField();
-        juiceShopLoginPage.fillPasswordField(password);
-        juiceShopLoginPage.verifyEmailErrorMessagePresent("Please provide an email address.");
+        juiceShopHomePage.closePopUps()
+                .clickAccountButton()
+                .clickLoginButton()
+                .clickOnEmailField()
+                .fillPasswordField(password)
+                .verifyEmailErrorMessagePresent("Please provide an email address.");
     }
 
     @Test(description = "Login with empty password")
     public void loginWithEmptyPassword() {
-        juiceShopHomePage.clickDismissButton();
-        juiceShopHomePage.clickAccountButton();
-        juiceShopHomePage.clickLoginButton();
-        juiceShopLoginPage.clickOnPasswordField();
-        juiceShopLoginPage.fillEmailField(email);
-        juiceShopLoginPage.verifyPasswordErrorMessagePresent("Please provide a password.");
+        juiceShopHomePage.closePopUps()
+                .clickAccountButton()
+                .clickLoginButton()
+                .clickOnPasswordField()
+                .fillEmailField(email)
+                .verifyPasswordErrorMessagePresent("Please provide a password.");
     }
 
     @Test(description = " Login Password and Email empty")
     public void loginWithEmptyEmailAndPassword() {
-        juiceShopHomePage.clickDismissButton();
-        juiceShopHomePage.clickAccountButton();
-        juiceShopHomePage.clickLoginButton();
-        juiceShopLoginPage.clickOnPasswordField();
-        juiceShopLoginPage.clickOnEmailField();
-        juiceShopLoginPage.clickOnPasswordField();
+        juiceShopHomePage.closePopUps()
+                .clickAccountButton()
+                .clickLoginButton()
+                .clickOnPasswordField()
+                .clickOnEmailField()
+                .clickOnPasswordField();
         juiceShopLoginPage.verifyPasswordErrorMessagePresent("Please provide a password.");
         juiceShopLoginPage.verifyEmailErrorMessagePresent("Please provide an email address.");
     }

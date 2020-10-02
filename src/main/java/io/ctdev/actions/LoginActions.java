@@ -8,15 +8,16 @@ public class LoginActions {
     private static JuiceShopLoginPage juiceShopLoginPage = new JuiceShopLoginPage();
 
     public static void login(String email, String password) {
-        juiceShopLoginPage.fillEmailField(email);
-        juiceShopLoginPage.fillPasswordField(password);
-        juiceShopLoginPage.clickLoginButton();
-        juiceShopHomePage.clickAccountButton();
-        juiceShopHomePage.verifyLogoutButtonPresent();
+        juiceShopLoginPage.fillEmailField(email)
+                .fillPasswordField(password)
+                .clickLoginButton()
+                .clickAccountButton()
+                .verifyLogoutButtonPresent();
+        juiceShopHomePage.refresh();
     }
 
-    public static void logout(){
-        juiceShopHomePage.clickAccountButton();
-        juiceShopHomePage.clickLogoutButton();
+    public static void logout() {
+        juiceShopHomePage.clickAccountButton()
+                .clickLogoutButton();
     }
 }

@@ -19,16 +19,16 @@ public class JuiceShopSignUpTest extends BaseTest {
 
     @Test
     public void juiceShopRegistrationTest() {
-        juiceShopHomePage.clickDismissButton();
-        juiceShopHomePage.clickAccountButton();
-        juiceShopHomePage.clickLoginButton();
-        juiceShopLoginPage.clickNotYetCustomerLink();
-        juiceShopRegistrationPage.fillTheEmailField(email);
-        juiceShopRegistrationPage.fillThePasswordField(password);
-        juiceShopRegistrationPage.fillTheRepeatPasswordField(password);
-        juiceShopRegistrationPage.selectSecurityQuestion(questionIndex);
-        juiceShopRegistrationPage.fillTheAnswerField(answer);
-        juiceShopRegistrationPage.clickRegisterButton();
-        juiceShopLoginPage.verifySuccessfulRegistrationMessageDisplayed();
+        juiceShopHomePage.closePopUps()
+                .clickAccountButton()
+                .clickLoginButton()
+                .clickNotYetCustomerLink()
+                .fillTheEmailField(email)
+                .fillThePasswordField(password)
+                .fillTheRepeatPasswordField(password)
+                .selectSecurityQuestion(questionIndex)
+                .fillTheAnswerField(answer)
+                .clickRegisterButton()
+                .verifySuccessfulRegistrationMessageDisplayed();
     }
 }

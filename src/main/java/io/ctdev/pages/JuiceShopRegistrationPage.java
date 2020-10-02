@@ -17,29 +17,35 @@ public class JuiceShopRegistrationPage {
     private By answerField = By.cssSelector("input#securityAnswerControl");
     private By registerButton = By.cssSelector("button#registerButton");
 
-    public void fillTheEmailField(String email) {
+    public JuiceShopRegistrationPage fillTheEmailField(String email) {
         driver.findElement(emailField).sendKeys(email);
+        return this;
     }
 
-    public void fillThePasswordField(String password) {
+    public JuiceShopRegistrationPage fillThePasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
+        return this;
     }
 
-    public void fillTheRepeatPasswordField(String repeatPassword) {
+    public JuiceShopRegistrationPage fillTheRepeatPasswordField(String repeatPassword) {
         driver.findElement(repeatPasswordField).sendKeys(repeatPassword);
+        return this;
     }
 
-    public void selectSecurityQuestion(int index) {
+    public JuiceShopRegistrationPage selectSecurityQuestion(int index) {
         driver.findElement(securityQuestionDropdown).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(String.format("[id^=mat-option]:nth-child(%s)", index))));
         driver.findElement(By.cssSelector(String.format("[id^=mat-option]:nth-child(%s)", index))).click();
+        return this;
     }
 
-    public void fillTheAnswerField(String answer) {
+    public JuiceShopRegistrationPage fillTheAnswerField(String answer) {
         driver.findElement(answerField).sendKeys(answer);
+        return this;
     }
 
-    public void clickRegisterButton() {
+    public JuiceShopLoginPage clickRegisterButton() {
         driver.findElement(registerButton).click();
+        return new JuiceShopLoginPage();
     }
 }

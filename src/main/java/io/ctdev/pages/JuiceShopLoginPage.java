@@ -17,24 +17,28 @@ public class JuiceShopLoginPage {
     private By errorMessageEmailEmpty = By.cssSelector("#login-form mat-form-field:nth-child(1) mat-error");
     private By errorMessagePasswordEmpty = By.cssSelector("#login-form mat-form-field:nth-child(2) mat-error");
 
-    public void clickNotYetCustomerLink() {
+    public JuiceShopRegistrationPage clickNotYetCustomerLink() {
         driver.findElement(notYetCustomerLink).click();
+        return new JuiceShopRegistrationPage();
     }
 
     public void verifySuccessfulRegistrationMessageDisplayed() {
-        Assert.assertTrue(!driver.findElements(successfulRegistrationMessage).isEmpty());
+        Assert.assertFalse(driver.findElements(successfulRegistrationMessage).isEmpty());
     }
 
-    public void fillEmailField(String email) {
+    public JuiceShopLoginPage fillEmailField(String email) {
         driver.findElement(emailField).sendKeys(email);
+        return this;
     }
 
-    public void fillPasswordField(String password) {
+    public JuiceShopLoginPage fillPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
+        return this;
     }
 
-    public void clickLoginButton() {
+    public JuiceShopHomePage clickLoginButton() {
         driver.findElement(clickLoginButton).click();
+        return new JuiceShopHomePage();
     }
 
     public void verifyErrorMessagePresent(String errorText) {
@@ -52,11 +56,13 @@ public class JuiceShopLoginPage {
         Assert.assertEquals(driver.findElement(errorMessagePasswordEmpty).getText(), errorText);
     }
 
-    public void clickOnEmailField(){
+    public JuiceShopLoginPage clickOnEmailField() {
         driver.findElement(emailField).click();
+        return this;
     }
 
-    public void clickOnPasswordField(){
+    public JuiceShopLoginPage clickOnPasswordField() {
         driver.findElement(passwordField).click();
+        return this;
     }
 }
