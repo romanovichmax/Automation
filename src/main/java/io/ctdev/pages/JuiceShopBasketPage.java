@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class BasketPage {
+public class JuiceShopBasketPage {
     private final WebDriver driver = SingletonDriver.getInstanceOfSingletonDriver();
 
     private String productContainer = "//mat-row[contains(., '%s')]";

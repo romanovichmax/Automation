@@ -74,9 +74,9 @@ public class JuiceShopHomePage {
         return this;
     }
 
-    public BasketPage clickBasketButton() {
+    public JuiceShopBasketPage clickBasketButton() {
         driver.findElement(basketButton).click();
-        return new BasketPage();
+        return new JuiceShopBasketPage();
     }
 
     public JuiceShopProductDetailsPage openProductDetailsPage(String product) {
