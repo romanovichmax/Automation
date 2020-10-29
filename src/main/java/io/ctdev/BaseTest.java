@@ -14,7 +14,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setup() {
-        openUrl("http://18.217.145.6/#/register");
+        openUrl("http://3.18.213.48/#/register");
     }
 
     @AfterMethod

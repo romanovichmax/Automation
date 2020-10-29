@@ -37,4 +37,10 @@ public interface SystemConfig extends Config {
 
     @Key("driver.type")
     String driverType();
+
+    @Key("remotely")
+    Boolean remotely();
+
+    @Key("remote.url")
+    String remoteUrl();
 }
