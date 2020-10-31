@@ -2,6 +2,7 @@ package io.ctdev;
 
 import com.arakelian.faker.service.RandomData;
 import io.ctdev.actions.LoginActions;
+import io.ctdev.actions.LogoutActions;
 import io.ctdev.actions.RegistrationActions;
 import io.ctdev.pages.JuiceShopHomePage;
 import net.bytebuddy.utility.RandomString;
@@ -23,5 +24,6 @@ public class AddProductsToBasketTest extends BaseTest {
         juiceShopHomePage.selectProducts(products)
                 .clickBasketButton()
                 .verifyProductsPresent(products);
+        LogoutActions.logout();
     }
 }
