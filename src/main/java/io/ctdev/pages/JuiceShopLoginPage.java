@@ -4,6 +4,7 @@ import io.ctdev.SingletonDriver;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class JuiceShopLoginPage {
@@ -38,6 +39,7 @@ public class JuiceShopLoginPage {
     }
     @Step("Click on Add to basket button on Sold Out product")
     public JuiceShopHomePage clickLoginButton() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.findElement(clickLoginButton).click();
         return new JuiceShopHomePage();
     }

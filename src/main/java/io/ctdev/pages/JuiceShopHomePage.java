@@ -14,7 +14,7 @@ public class JuiceShopHomePage {
 
     private By dismissButtonCss = By.cssSelector("button[aria-label='Close Welcome Banner']");
     private By accountButtonCss = By.cssSelector("button#navbarAccount");
-    private By loginButtonCss = By.xpath("//div//button[@routerlink='/login']");
+    private By loginButtonCss = By.xpath("button#navbarLoginButton");
     private By logoutButtonCss = By.cssSelector("button#navbarLogoutButton");
     private By logoButton = By.cssSelector("button[aria-label='Back to homepage']");
     private By basketButton = By.cssSelector("button[routerlink='/basket']");
