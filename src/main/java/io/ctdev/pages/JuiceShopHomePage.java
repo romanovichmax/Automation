@@ -29,7 +29,7 @@ public class JuiceShopHomePage {
 
     @Step("Wait until the popUp is shown")
     public JuiceShopHomePage selectProducts(String... products) {
-        final WebDriverWait wait = new WebDriverWait(driver, 15);
+        final WebDriverWait wait = new WebDriverWait(driver, 12);
         for (String product : products) {
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(addToBasketButton, product))));
             driver.findElement(By.xpath(String.format(addToBasketButton, product))).click();
@@ -57,7 +57,7 @@ public class JuiceShopHomePage {
 
     @Step("Click on Login button")
     public JuiceShopLoginPage clickLoginButton() {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 12);
         driver.findElement(loginButtonCss).click();
         return new JuiceShopLoginPage();
     }
@@ -70,14 +70,14 @@ public class JuiceShopHomePage {
     @Step("Click on Logout button")
 
     public JuiceShopHomePage clickLogoutButton() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 12);
         driver.findElement(logoutButtonCss).click();
         return this;
     }
 
     @Step("Click on Logout button")
     public JuiceShopHomePage clickLogoButton() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 12);
         driver.findElement(logoButton).click();
         return this;
     }
@@ -102,7 +102,7 @@ public class JuiceShopHomePage {
 
     @Step("Click on next page button")
     public JuiceShopHomePage paginateNextPage() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 12);
         wait.until(ExpectedConditions.elementToBeClickable(nextPageButton));
         driver.findElement(nextPageButton).click();
         wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
