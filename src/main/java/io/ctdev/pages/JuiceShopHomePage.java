@@ -29,7 +29,7 @@ public class JuiceShopHomePage {
 
     @Step("Wait until the popUp is shown")
     public JuiceShopHomePage selectProducts(String... products) {
-        final WebDriverWait wait = new WebDriverWait(driver, 12);
+        final WebDriverWait wait = new WebDriverWait(driver, 5);
         for (String product : products) {
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(addToBasketButton, product))));
             driver.findElement(By.xpath(String.format(addToBasketButton, product))).click();
@@ -41,6 +41,7 @@ public class JuiceShopHomePage {
 
     @Step("Click on close button")
     public JuiceShopHomePage closePopUps() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
         if (!driver.findElements(dismissButtonCss).isEmpty())
             driver.findElement(dismissButtonCss).click();
         if (!driver.findElements(meWantItButton).isEmpty())
@@ -50,6 +51,7 @@ public class JuiceShopHomePage {
 
     @Step("Click on Account button")
     public JuiceShopHomePage clickAccountButton() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
         driver.findElement(accountButtonCss).click();
         return this;
     }
@@ -64,11 +66,11 @@ public class JuiceShopHomePage {
 
 
     public void verifyLogoutButtonPresent() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
         Assert.assertTrue(driver.findElement(logoutButtonCss).isDisplayed());
     }
 
     @Step("Click on Logout button")
-
     public JuiceShopHomePage clickLogoutButton() {
         WebDriverWait wait = new WebDriverWait(driver, 12);
         driver.findElement(logoutButtonCss).click();
@@ -77,7 +79,7 @@ public class JuiceShopHomePage {
 
     @Step("Click on Logout button")
     public JuiceShopHomePage clickLogoButton() {
-        WebDriverWait wait = new WebDriverWait(driver, 12);
+        WebDriverWait wait = new WebDriverWait(driver, 5);
         driver.findElement(logoButton).click();
         return this;
     }
@@ -90,12 +92,14 @@ public class JuiceShopHomePage {
 
     @Step("Click on Basket button")
     public JuiceShopBasketPage clickBasketButton() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
         driver.findElement(basketButton).click();
         return new JuiceShopBasketPage();
     }
 
     @Step("Click on Open product details page")
     public JuiceShopProductDetailsPage openProductDetailsPage(String product) {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
         driver.findElement(By.xpath(String.format(productContainer, product))).click();
         return new JuiceShopProductDetailsPage();
     }

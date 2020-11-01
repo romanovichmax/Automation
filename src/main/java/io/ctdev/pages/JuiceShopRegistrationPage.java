@@ -52,6 +52,7 @@ public class JuiceShopRegistrationPage {
 
     @Step("Click the register button")
     public JuiceShopLoginPage clickRegisterButton() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
         driver.findElement(registerButton).click();
         return new JuiceShopLoginPage();
     }
