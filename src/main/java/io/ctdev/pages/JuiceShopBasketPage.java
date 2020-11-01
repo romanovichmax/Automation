@@ -11,14 +11,12 @@ public class JuiceShopBasketPage {
 
     private String productContainer = "//mat-row[contains(., '%s')]";
 
-    @Step
     public void verifyProductsPresent(String... products) {
         for (String product : products) {
             Assert.assertTrue(isProductPresent(product));
         }
     }
 
-    @Step
     private boolean isProductPresent(String product) {
         return !driver.findElements(By.xpath(String.format(productContainer, product))).isEmpty();
     }

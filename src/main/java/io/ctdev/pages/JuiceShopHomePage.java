@@ -27,7 +27,7 @@ public class JuiceShopHomePage {
     private String addToBasketButton = "//mat-card[contains(.,'%s')]//button";
     private String productContainer = "//div[@mattooltip='Click for more information'][contains(., '%s')]";
 
-    @Step
+    @Step("Wait until the popUp is shown")
     public JuiceShopHomePage selectProducts(String... products) {
         final WebDriverWait wait = new WebDriverWait(driver, 10);
         for (String product : products) {
@@ -39,7 +39,7 @@ public class JuiceShopHomePage {
         return this;
     }
 
-    @Step
+    @Step("Click on close button")
     public JuiceShopHomePage closePopUps() {
         if (!driver.findElements(dismissButtonCss).isEmpty())
             driver.findElement(dismissButtonCss).click();
@@ -48,54 +48,54 @@ public class JuiceShopHomePage {
         return this;
     }
 
-    @Step
+    @Step("Click on Account button")
     public JuiceShopHomePage clickAccountButton() {
         driver.findElement(accountButtonCss).click();
         return this;
     }
 
-    @Step
+    @Step("Click on Login button")
     public JuiceShopLoginPage clickLoginButton() {
         driver.findElement(loginButtonCss).click();
         return new JuiceShopLoginPage();
     }
 
-    @Step
+
     public void verifyLogoutButtonPresent() {
         Assert.assertTrue(driver.findElement(logoutButtonCss).isDisplayed());
     }
 
-    @Step
+    @Step("Click on Logout button")
     public JuiceShopHomePage clickLogoutButton() {
         driver.findElement(logoutButtonCss).click();
         return this;
     }
 
-    @Step
+    @Step("Click on Logout button")
     public JuiceShopHomePage clickLogoButton() {
         driver.findElement(logoButton).click();
         return this;
     }
 
-    @Step
+
     public JuiceShopHomePage refresh() {
         driver.navigate().refresh();
         return this;
     }
 
-    @Step
+    @Step("Click on Basket button")
     public JuiceShopBasketPage clickBasketButton() {
         driver.findElement(basketButton).click();
         return new JuiceShopBasketPage();
     }
 
-    @Step
+    @Step("Click on Open product details page")
     public JuiceShopProductDetailsPage openProductDetailsPage(String product) {
         driver.findElement(By.xpath(String.format(productContainer, product))).click();
         return new JuiceShopProductDetailsPage();
     }
 
-    @Step
+    @Step("Click on next page button")
     public JuiceShopHomePage paginateNextPage() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(nextPageButton));
@@ -104,13 +104,13 @@ public class JuiceShopHomePage {
         return this;
     }
 
-    @Step
+    @Step("Click on Add to basket button on Sold Out product")
     public JuiceShopHomePage clickOnAddToBasketButtonSoldOutItem() {
         driver.findElement(addToBasketSoldOut).click();
         return this;
     }
 
-    @Step
+
     public void isSoldOutErrorMessagePresent() {
         Assert.assertFalse(driver.findElements(soldOutErrorMessage).isEmpty());
     }
