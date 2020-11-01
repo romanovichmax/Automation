@@ -54,8 +54,10 @@ public class JuiceShopHomePage {
         return this;
     }
 
+
     @Step("Click on Login button")
     public JuiceShopLoginPage clickLoginButton() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.findElement(loginButtonCss).click();
         return new JuiceShopLoginPage();
     }
@@ -66,13 +68,16 @@ public class JuiceShopHomePage {
     }
 
     @Step("Click on Logout button")
+
     public JuiceShopHomePage clickLogoutButton() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.findElement(logoutButtonCss).click();
         return this;
     }
 
     @Step("Click on Logout button")
     public JuiceShopHomePage clickLogoButton() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.findElement(logoButton).click();
         return this;
     }
