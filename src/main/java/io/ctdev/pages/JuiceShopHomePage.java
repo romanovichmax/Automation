@@ -29,7 +29,7 @@ public class JuiceShopHomePage {
 
     @Step("Wait until the popUp is shown")
     public JuiceShopHomePage selectProducts(String... products) {
-        final WebDriverWait wait = new WebDriverWait(driver, 10);
+        final WebDriverWait wait = new WebDriverWait(driver, 15);
         for (String product : products) {
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(addToBasketButton, product))));
             driver.findElement(By.xpath(String.format(addToBasketButton, product))).click();
@@ -57,7 +57,7 @@ public class JuiceShopHomePage {
 
     @Step("Click on Login button")
     public JuiceShopLoginPage clickLoginButton() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 15);
         driver.findElement(loginButtonCss).click();
         return new JuiceShopLoginPage();
     }
