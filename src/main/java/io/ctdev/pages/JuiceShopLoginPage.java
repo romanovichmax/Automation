@@ -21,7 +21,7 @@ public class JuiceShopLoginPage {
     private By errorMessagePasswordEmpty = By.cssSelector("#login-form mat-form-field:nth-child(2) mat-error");
     private By successfulMessage = By.xpath("//*[contains(text(),'Registration completed successfully')]");
 
-    @Step("Click on Add to basket button on Sold Out product")
+    @Step("click not yet customer link")
     public JuiceShopRegistrationPage clickNotYetCustomerLink() {
         driver.findElement(notYetCustomerLink).click();
         return new JuiceShopRegistrationPage();
