@@ -47,8 +47,9 @@ public class JuiceShopLoginPage {
     @Step("Click on Add to basket button on Sold Out product")
     public JuiceShopHomePage clickLoginButton() {
         WebDriverWait wait = new WebDriverWait(driver, 6);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(clickLoginButton));
-        driver.findElement(clickLoginButton).click();
+//        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(clickLoginButton));
+//        driver.findElement(clickLoginButton).click();
+        wait.until(ExpectedConditions.elementToBeClickable(clickLoginButton)).click();
         return new JuiceShopHomePage();
     }
 
