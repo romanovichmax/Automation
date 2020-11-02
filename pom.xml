@@ -184,10 +184,7 @@
                     <reportVersion>2.4.1</reportVersion>
                     <resultsDirectory>allure-results</resultsDirectory>
                 </configuration>
-
-
             </plugin>
-
         </plugins>
 
     </build>
@@ -196,50 +193,54 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
-
         </dependency>
+
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.8.1</version>
-
         </dependency>
+
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java8</artifactId>
+            <artifactId>cucumber-java</artifactId>
             <version>6.8.1</version>
-            <scope>test</scope>
-
         </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>6.8.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.1.0</version>
-
         </dependency>
+
         <dependency>
             <groupId>org.aeonbits.owner</groupId>
             <artifactId>owner</artifactId>
             <version>1.0.10</version>
-
         </dependency>
+
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>4.1.0</version>
-
         </dependency>
+
         <dependency>
             <groupId>com.arakelian</groupId>
             <artifactId>faker</artifactId>
             <version>3.7.0</version>
-
         </dependency>
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>2.13.6</version>
-
         </dependency>
 
     </dependencies>

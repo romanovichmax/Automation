@@ -6,7 +6,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
-    WebDriver driver = SingletonDriver.getInstanceOfSingletonDriver();
+    public WebDriver driver = SingletonDriver.getInstanceOfSingletonDriver();
 
     public void openUrl(String url) {
         driver.get(url);
