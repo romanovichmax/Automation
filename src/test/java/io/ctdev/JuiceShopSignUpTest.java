@@ -26,5 +26,6 @@ public class JuiceShopSignUpTest extends BaseTest {
                 .fillTheAnswerField(answer)
                 .clickRegisterButton()
                 .verifySuccessfulRegistrationMessageDisplayed();
+        juiceShopHomePage.clickLogoutButton();
     }
 }
