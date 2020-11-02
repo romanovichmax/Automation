@@ -29,8 +29,7 @@ public class JuiceShopLoginPage {
 
     public void verifySuccessfulRegistrationMessageDisplayed() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(successfulMessage));
-        Assert.assertFalse(driver.findElements(successfulRegistrationMessage).isEmpty());
+        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(successfulMessage)).isDisplayed());
     }
 
     @Step("Click on Add to basket button on Sold Out product")
