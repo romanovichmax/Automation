@@ -21,7 +21,7 @@ public class JuiceShopLoginPage {
     private By errorMessagePasswordEmpty = By.cssSelector("#login-form mat-form-field:nth-child(2) mat-error");
     private By successfulMessage = By.xpath("//*[contains(text(),'Registration completed successfully')]");
 
-    @Step("click not yet customer link")
+    @Step("Click not yet customer link")
     public JuiceShopRegistrationPage clickNotYetCustomerLink() {
         driver.findElement(notYetCustomerLink).click();
         return new JuiceShopRegistrationPage();
@@ -32,52 +32,48 @@ public class JuiceShopLoginPage {
         Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(successfulMessage)).isDisplayed());
     }
 
-    @Step("Click on Add to basket button on Sold Out product")
+    @Step("Fill in the email field")
     public JuiceShopLoginPage fillEmailField(String email) {
         driver.findElement(emailField).sendKeys(email);
         return this;
     }
 
-    @Step("Click on Add to basket button on Sold Out product")
+    @Step("fill in the password field")
     public JuiceShopLoginPage fillPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
         return this;
     }
 
-    @Step("Click on Add to basket button on Sold Out product")
+    @Step("Click on Login button")
     public JuiceShopHomePage clickLoginButton() {
         WebDriverWait wait = new WebDriverWait(driver, 6);
-//        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(clickLoginButton));
-//        driver.findElement(clickLoginButton).click();
-        wait.until(ExpectedConditions.elementToBeClickable(clickLoginButton)).click();
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(clickLoginButton));
+        driver.findElement(clickLoginButton).click();
         return new JuiceShopHomePage();
     }
 
-    @Step("Click on Add to basket button on Sold Out product")
     public void verifyErrorMessagePresent(String errorText) {
         Assert.assertTrue(driver.findElement(errorMessagePasswordEmailEmpty).isDisplayed());
         Assert.assertEquals(driver.findElement(errorMessagePasswordEmailEmpty).getText(), errorText);
     }
 
-    @Step("Click on Add to basket button on Sold Out product")
     public void verifyEmailErrorMessagePresent(String errorText) {
         Assert.assertTrue(driver.findElement(errorMessageEmailEmpty).isDisplayed());
         Assert.assertEquals(driver.findElement(errorMessageEmailEmpty).getText(), errorText);
     }
 
-    @Step("Click on Add to basket button on Sold Out product")
     public void verifyPasswordErrorMessagePresent(String errorText) {
         Assert.assertTrue(driver.findElement(errorMessagePasswordEmpty).isDisplayed());
         Assert.assertEquals(driver.findElement(errorMessagePasswordEmpty).getText(), errorText);
     }
 
-    @Step("Click on Add to basket button on Sold Out product")
+    @Step("Click email field")
     public JuiceShopLoginPage clickOnEmailField() {
         driver.findElement(emailField).click();
         return this;
     }
 
-    @Step("Click on Add to basket button on Sold Out product")
+    @Step("Click on password field")
     public JuiceShopLoginPage clickOnPasswordField() {
         driver.findElement(passwordField).click();
         return this;
