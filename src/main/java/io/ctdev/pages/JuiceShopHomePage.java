@@ -51,7 +51,7 @@ public class JuiceShopHomePage {
 
     @Step("Click on Account button")
     public JuiceShopHomePage clickAccountButton() {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, 15);
         driver.findElement(accountButtonCss).click();
         return this;
     }
