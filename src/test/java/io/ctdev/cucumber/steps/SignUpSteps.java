@@ -21,7 +21,7 @@ public class SignUpSteps extends BaseTest {
     private Integer questionIndex = RandomData.get().nextInt(1, 10);
     private String answer = RandomString.make(7);
 
-    @Given("^User opens the Home page$")
+    @Given("User opens the Home page")
     public void openHomePage() {
         openUrl("http://3.18.213.48/#/search");
     }
