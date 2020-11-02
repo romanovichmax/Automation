@@ -60,7 +60,8 @@ public class JuiceShopHomePage {
     @Step("Click on Login button")
     public JuiceShopLoginPage clickLoginButton() {
         WebDriverWait wait = new WebDriverWait(driver, 12);
-        driver.findElement(loginButtonCss).click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginButtonCss)).click();
+//        driver.findElement(loginButtonCss).click();
         return new JuiceShopLoginPage();
     }
 
